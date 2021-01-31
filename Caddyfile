@@ -1,0 +1,11 @@
+:80
+  log {
+    output file /var/log/caddy/access.log
+    format console 
+  }
+
+
+reverse_proxy minio1:9000 minio2:9000 minio3:9000 minio4:9000 {
+  lb_policy least_conn #round_robin
+  header_down -Server
+}
