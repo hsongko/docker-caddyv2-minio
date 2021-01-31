@@ -10,8 +10,8 @@ services:
       - "443:443"
     volumes:
       - ./Caddyfile_single:/etc/caddy/Caddyfile
-        #      - caddy_data:/data
-        #      - caddy_config:/config
+      - caddy_data:/data
+      - caddy_config:/config
   
   minio:
     image: minio/minio:RELEASE.2021-01-30T00-20-58Z
